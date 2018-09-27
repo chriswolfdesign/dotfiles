@@ -28,17 +28,18 @@
 
 ;; tab width
 (setq python-indent-level 2)
+(setq-default tab-width 4)
 
 ;; Evil Mode Integration
-(add-to-list 'load-path "~/.emacs.d/evil")
-(require 'evil)
-(evil-mode 1)
+;; (add-to-list 'load-path "~/.emacs.d/evil")
+;; (require 'evil)
+;; (evil-mode 1)
 
 ;; Change color of cursor based on evil-mode
 ;; TODO: Figure this cursor shit out 
 
 ;; vim style keybindings
-(define-key evil-insert-state-map [caps lock] [escape])
+;; (define-key evil-insert-state-map [caps lock] [escape])
 
 ;; Smart Parens
 (add-to-list 'load-path "~/.emacs.d/smartparens")

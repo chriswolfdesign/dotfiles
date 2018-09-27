@@ -8,14 +8,21 @@ set expandtab
 set colorcolumn=80
 set clipboard=unnamed
 set mouse=a
-set noexpandtab
+set expandtab
 " colorscheme vividchalk
 filetype plugin indent on
-autocmd vimenter * NERDTree
-autocmd vimenter * Tagbar
+" autocmd vimenter * NERDTree
+" autocmd vimenter * Tagbar
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
+
+" Remember folds between sessions
+augroup remember_folds
+    autocmd!
+    autocmd BufWinLeave * mkview
+    autocmd BufWinEnter * silent! loadview
+augroup END
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -76,17 +83,8 @@ set tabstop=4
 set autoindent
 set shiftwidth=4
 
-" Stop using arrow keys!
-noremap  <Up> ""
-noremap! <Up> <>
-noremap  <Down> ""
-noremap! <Down> <>
-noremap  <Left> ""
-noremap! <Left> <>
-noremap  <Right> ""
-noremap! <Right> <>
-imap jk <Esc>
-vmap jk <Esc>
+" Remaps
+inoremap jk <Esc>
 
 " Open NERDTree more easily
 noremap N :NERDTree<Enter>
