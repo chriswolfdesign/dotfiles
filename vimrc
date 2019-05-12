@@ -6,9 +6,10 @@ set tabstop=4
 set smartindent
 set expandtab
 set colorcolumn=80
-set clipboard=unnamed
 set mouse=a
 set expandtab
+set noswapfile
+set clipboard=unnamedplus
 " colorscheme vividchalk
 filetype plugin indent on
 " autocmd vimenter * NERDTree
@@ -18,11 +19,17 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " Remember folds between sessions
-augroup remember_folds
-    autocmd!
-    autocmd BufWinLeave * mkview
-    autocmd BufWinEnter * silent! loadview
-augroup END
+" augroup remember_folds
+"     autocmd!
+"     autocmd BufWinLeave * mkview
+"     autocmd BufWinEnter * silent! loadview
+" augroup END
+
+" Change color of colorcolumn
+highlight ColorColumn ctermbg=Blue
+
+" Get rid of the damned beep
+set belloff=all
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -60,8 +67,9 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'sjl/badwolf'
 " Plugin 'taglist.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
 
-let g:syntastic_c_compiler = ['gcc']
+" let g:syntastic_c_compiler = ['gcc']
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -87,13 +95,22 @@ set shiftwidth=4
 inoremap jk <Esc>
 
 " Open NERDTree more easily
-noremap N :NERDTree<Enter>
+noremap <F1> :NERDTreeToggle<Enter>
 
 " Open Tagbar more easily
-noremap T :Tagbar<Enter>
+noremap <F2> :Tagbar<Enter>
+
+" Switch panes more easily
+noremap <F3> <c-w><c-w>
+
+" Move to bash
+noremap <F4> :!bash<Enter>
+
+" Make ctags
+noremap <F5> :! ctags -R .<Enter>
 
 " Set tabsize for Python
-autocmd Filetype python setlocal ts=2
+" autocmd Filetype python setlocal ts=2
 set laststatus=2
 
 nnoremap <F8> <:Tagbar>
@@ -102,4 +119,3 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 if !has("gui_running")
 let g:AutoClosePreservDotReg = 0
 endif
-
