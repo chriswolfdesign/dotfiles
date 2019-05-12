@@ -1,0 +1,74 @@
+""
+"" init.vim
+"" 
+"" My nvim configuration settings
+"" 
+"" Chris Wolf
+""
+
+" Neovim plugins
+call plug#begin()
+
+    " Colorschemes
+    Plug 'icymind/NeoSolarized'
+    Plug 'rakr/vim-one'
+
+    " NERDTree
+    Plug 'scrooloose/nerdtree'
+
+    " Ctrl-p
+    Plug 'ctrlpvim/ctrlp.vim'
+
+    " Fugitive git support
+    Plug 'tpope/vim-fugitive'
+
+    " Airline
+    Plug 'bling/vim-airline'
+
+    " Airline themes
+    Plug 'vim-airline/vim-airline-themes'
+
+    " Surround
+    Plug 'tpope/vim-surround' 
+
+    " vim-closetag
+    Plug 'alvan/vim-closetag'
+
+    " vim auto-close
+    Plug 'Townk/vim-autoclose'
+
+call plug#end()
+
+" Color scheme settings
+set background=dark
+set termguicolors
+hi clear Comment
+hi Comment ctermfg=119
+colorscheme one
+
+" Standard vim settings
+set number
+set relativenumber
+set cursorline
+set tabstop=4
+set shiftwidth=4
+set smartindent
+set expandtab
+highlight ColorColumn guibg=White
+set colorcolumn=80
+set mouse=a
+set noswapfile
+set nohlsearch
+
+" Keybindings
+tnoremap jk <C-\><C-n>
+inoremap jk <Esc>
+
+" Close brace settings
+" " inoremap " ""<left>
+" "inoremap ' ''<left>
+" "inoremap ( ()<left>
+" "inoremap [ []<left>
+" "inoremap { {}<left>
+" "inoremap {<CR> {<CR>}<ESC>O
+
